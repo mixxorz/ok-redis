@@ -29,3 +29,15 @@ class KeyTest(unittest.TestCase):
 
         self.assertEqual(Country('PH').Province('Metro Manila').City('Manila').key,  # noqa
                          'Country:PH:Province:Metro Manila:City:Manila')
+
+    def test_string_subkey_access(self):
+        self.assertEqual(Parent('foo').Refer('bar').key,
+                         'Parent:foo:Refer:bar')
+
+
+class Parent(Key):
+    subkeys = ['ok.tests.Refer']
+
+
+class Refer(Key):
+    pass

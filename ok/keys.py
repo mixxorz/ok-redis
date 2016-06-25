@@ -1,3 +1,4 @@
+from importlib import import_module
 # from . import types
 
 
@@ -14,8 +15,16 @@ def keygen(*args, **kwargs):
     return kwargs['sep'].join(cleaned_list)
 
 
+def import_class(name):
+    module = '.'.join(name.split('.')[:-1])
+    class_name = name.split('.')[-1]
+    mod = import_module(module)
+    return getattr(mod, class_name)
+
+
 class Key(object):
     fields = []
+    subkeys = []
 
     def __init__(self, id='', prefix='', class_key=''):
         self.id = id
@@ -38,6 +47,14 @@ class Key(object):
             return keygen(self.key, attr)
 
         # Access subkeys
-        if attr in [subkey.__name__ for subkey in self.subkeys]:
-            return next(subkey for subkey in self.subkeys
+        string_subkeys = [subkey for subkey in self.subkeys
+                          if type(subkey) == str]
+        subkeys = [subkey for subkey in self.subkeys
+                   if type(subkey) != str and issubclass(subkey, Key)]
+
+        for subkey in string_subkeys:
+            subkeys.append(import_class(subkey))
+
+        if attr in [subkey.__name__ for subkey in subkeys]:
+            return next(subkey for subkey in subkeys
                         if subkey.__name__ == attr)(prefix=self.key)
