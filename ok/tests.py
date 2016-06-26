@@ -34,6 +34,18 @@ class KeyTest(unittest.TestCase):
         self.assertEqual(Parent('foo').Refer('bar').key,
                          'Parent:foo:Refer:bar')
 
+    def test_empty_id(self):
+        class Twitter(Key):
+            fields = ['tweets']
+
+        self.assertEqual(Twitter().tweets, 'Twitter:tweets')
+
+    def test_class_key(self):
+        class Twitter(Key):
+            class_key = 'twitter'
+
+        self.assertEqual(Twitter().key, 'twitter')
+
 
 class Parent(Key):
     subkeys = ['ok.tests.Refer']

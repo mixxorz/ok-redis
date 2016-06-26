@@ -23,13 +23,14 @@ def import_class(name):
 
 
 class Key(object):
+    class_key = None
     fields = []
     subkeys = []
 
     def __init__(self, id='', prefix='', class_key=''):
         self.id = id
         self.prefix = prefix
-        self.class_key = class_key or type(self).__name__
+        self.class_key = type(self).class_key or type(self).__name__
         self.key = keygen(self.prefix, self.class_key, self.id)
 
     def __call__(self, id='', prefix=''):
