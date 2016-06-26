@@ -1,4 +1,6 @@
 autopep8
+docutils
 pip-tools
+pygments
 pytest
 tox
