@@ -17,6 +17,12 @@ class KeyTest(unittest.TestCase):
 
         self.assertEqual(User('mixxorz').timeline, 'User:mixxorz:timeline')
 
+    def test_class_key_access(self):
+        class User(Key):
+            pass
+
+        self.assertEqual(User('mixxorz').key, 'User:mixxorz')
+
     def test_subkey_access(self):
         class City(Key):
             pass
