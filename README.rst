@@ -126,8 +126,8 @@ MIT
 .. |latest-version| image:: https://img.shields.io/pypi/v/ok-redis.svg
     :target: https://pypi.python.org/pypi/ok-redis/
     :alt: Latest version
-.. |build-status| image:: https://img.shields.io/travis/behave/ok-redis/master.svg
-    :target: https://travis-ci.org/behave/ok-redis
+.. |build-status| image:: https://img.shields.io/travis/mixxorz/ok-redis/master.svg
+    :target: https://travis-ci.org/mixxorz/ok-redis
     :alt: Build status
 .. |python-support| image:: https://img.shields.io/pypi/pyversions/ok-redis.svg
    :target: https://pypi.python.org/pypi/ok-redis
