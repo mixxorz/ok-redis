@@ -1,5 +1,7 @@
-ok
-==
+ok |latest-version|
+==============================
+
+|build-status| |python-support| |downloads| |license|
 
 Object-Key Mapper for Redis
 
@@ -120,3 +122,19 @@ License
 -------
 
 MIT
+
+.. |latest-version| image:: https://img.shields.io/pypi/v/ok-redis.svg
+    :target: https://pypi.python.org/pypi/ok-redis/
+    :alt: Latest version
+.. |build-status| image:: https://img.shields.io/travis/behave/ok-redis/master.svg
+    :target: https://travis-ci.org/behave/ok-redis
+    :alt: Build status
+.. |python-support| image:: https://img.shields.io/pypi/pyversions/ok-redis.svg
+   :target: https://pypi.python.org/pypi/ok-redis
+   :alt: Python versions
+.. |downloads| image:: https://img.shields.io/pypi/dm/ok-redis.svg
+    :target: https://pypi.python.org/pypi/ok-redis/
+    :alt: Monthly downloads
+.. |license| image:: https://img.shields.io/pypi/l/ok-redis.svg
+    :target: https://github.com/behave/ok-redis/blob/master/LICENSE
+    :alt: Software license
