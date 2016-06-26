@@ -62,7 +62,24 @@ print(Country('PH').City('Manila').tweets_hll)
 # Country:PH:City:Manila:tweets
 ```
 
-Access the class key
+Subkeys can be an absolute or relative path to a key.
+
+```python
+# mod_one.py
+class Refer(Key):
+    fields = ['elements']
+
+
+# mod_two.py
+class Parent(Key):
+    subkeys = ['..mod_one.Refer']
+
+
+print(Parent('foo').Refer('bar').elements)
+# Parent:foo:Refer:bar:elements
+```
+
+Access the class key.
 
 ```python
 class User(ok.Key):

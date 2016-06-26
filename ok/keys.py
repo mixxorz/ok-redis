@@ -15,10 +15,13 @@ def keygen(*args, **kwargs):
     return kwargs['sep'].join(cleaned_list)
 
 
-def import_class(name):
+def import_class(name, relative_to):
     module = '.'.join(name.split('.')[:-1])
     class_name = name.split('.')[-1]
-    mod = import_module(module)
+    if module:
+        mod = import_module(module, relative_to.__module__)
+    else:
+        mod = import_module(relative_to.__module__)
     return getattr(mod, class_name)
 
 
@@ -54,7 +57,7 @@ class Key(object):
                    if type(subkey) != str and issubclass(subkey, Key)]
 
         for subkey in string_subkeys:
-            subkeys.append(import_class(subkey))
+            subkeys.append(import_class(subkey, self))
 
         if attr in [subkey.__name__ for subkey in subkeys]:
             return next(subkey for subkey in subkeys

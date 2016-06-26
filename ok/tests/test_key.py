@@ -40,6 +40,14 @@ class KeyTest(unittest.TestCase):
         self.assertEqual(Parent('foo').Refer('bar').key,
                          'Parent:foo:Refer:bar')
 
+    def test_string_subkey_relative_access(self):
+        self.assertEqual(ParentRelative('foo').ReferRelative('bar').key,
+                         'ParentRelative:foo:ReferRelative:bar')
+
+    def test_string_subkey_same_file_relative_access(self):
+        self.assertEqual(ParentSame('foo').ReferSame('bar').key,
+                         'ParentSame:foo:ReferSame:bar')
+
     def test_empty_id(self):
         class Twitter(Key):
             fields = ['tweets']
@@ -54,8 +62,16 @@ class KeyTest(unittest.TestCase):
 
 
 class Parent(Key):
-    subkeys = ['ok.tests.Refer']
+    subkeys = ['ok.tests.module_test.Refer']
 
 
-class Refer(Key):
+class ParentRelative(Key):
+    subkeys = ['..module_test.ReferRelative']
+
+
+class ParentSame(Key):
+    subkeys = ['.ReferSame']
+
+
+class ReferSame(Key):
     pass
