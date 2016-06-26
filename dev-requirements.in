@@ -1,0 +1,4 @@
+autopep8
+pip-tools
+pytest
+tox
