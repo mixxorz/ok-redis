@@ -1,5 +1,6 @@
 from importlib import import_module
-# from . import types
+
+import six
 
 
 def keygen(*args, **kwargs):
@@ -25,18 +26,21 @@ def import_class(name, relative_to):
     return getattr(mod, class_name)
 
 
+@six.python_2_unicode_compatible
 class Key(object):
     class_key = None
     fields = []
     subkeys = []
 
     def __init__(self, id='', prefix='', class_key=''):
-        self.id = id
+        self.id = str(id)
         self.prefix = prefix
         self.class_key = type(self).class_key or type(self).__name__
         self.key = keygen(self.prefix, self.class_key, self.id)
 
     def __call__(self, id='', prefix=''):
+        id = str(id)
+
         if not id:
             id = self.id
 
@@ -62,3 +66,6 @@ class Key(object):
         if attr in [subkey.__name__ for subkey in subkeys]:
             return next(subkey for subkey in subkeys
                         if subkey.__name__ == attr)(prefix=self.key)
+
+    def __str__(self):
+        return self.key

@@ -1,16 +1,14 @@
 from setuptools import find_packages, setup
 import os
 
-import ok
-
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
 
 setup(name='ok-redis',
-      version=ok.__version__,
+      version='0.1.1',
       packages=find_packages(exclude=['test*']),
       license='MIT',
-      description=ok.__doc__,
+      description='Object-Key Mapper for Redis',
       long_description=README,
       url='https://github.com/mixxorz/ok-redis',
       author='Mitchel Cabuloy (mixxorz)',
@@ -28,4 +26,5 @@ setup(name='ok-redis',
           'Topic :: Database',
           'Topic :: Utilities',
       ],
+      install_requires=['six'],
       zip_safe=False)

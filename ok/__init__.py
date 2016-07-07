@@ -1,5 +1,6 @@
 """Object-Key Mapper for Redis"""
 
-__version__ = '0.1.0'
+from .keys import Key
 
-from ok.keys import Key  # noqa
+__all__ = ['Key']
+__version__ = '0.1.1'

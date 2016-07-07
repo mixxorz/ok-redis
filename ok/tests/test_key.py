@@ -60,6 +60,18 @@ class KeyTest(unittest.TestCase):
 
         self.assertEqual(Twitter().key, 'twitter')
 
+    def test_should_accept_non_strings(self):
+        class User(Key):
+            fields = ['tweets']
+
+        self.assertEqual(User(123).tweets, 'User:123:tweets')
+
+    def test_class_str(self):
+        class User(Key):
+            pass
+
+        self.assertEqual('%s' % User('mixxorz'), 'User:mixxorz')
+
 
 class Parent(Key):
     subkeys = ['ok.tests.module_test.Refer']
