@@ -113,6 +113,16 @@ IDs are optional.
     print(User().rankings)
     # User:rankings
 
+IDs don't have to be strings
+
+.. code:: python
+
+    class User(ok.Key)
+        pass
+
+    print(User(123))
+    # User:123
+
 You can change the string used for the key.
 
 .. code:: python
