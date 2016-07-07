@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from importlib import import_module
 
 import six
@@ -33,13 +34,13 @@ class Key(object):
     subkeys = []
 
     def __init__(self, id='', prefix='', class_key=''):
-        self.id = str(id)
+        self.id = six.text_type(id)
         self.prefix = prefix
         self.class_key = type(self).class_key or type(self).__name__
         self.key = keygen(self.prefix, self.class_key, self.id)
 
     def __call__(self, id='', prefix=''):
-        id = str(id)
+        id = six.text_type(id)
 
         if not id:
             id = self.id
