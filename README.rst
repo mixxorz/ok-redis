@@ -84,7 +84,8 @@ Subkeys can be an absolute or relative path to a key.
     print(Parent('foo').Refer('bar').elements)
     # Parent:foo:Refer:bar:elements
 
-Access the class key.
+The string representation of a `Key` instance is the key, so you can use it like
+this:
 
 .. code:: python
 
@@ -92,8 +93,14 @@ Access the class key.
         pass
 
 
-    print(User('mixxorz').key)
-    # User:mixxorz
+    r.get(User('mixxorz'))
+
+But you can also access the key explicitly.
+
+.. code:: python
+
+    User('mixxorz').key
+    # >>> User:mixxorz
 
 IDs are optional.
 
