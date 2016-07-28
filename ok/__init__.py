@@ -3,4 +3,4 @@
 from .keys import Key
 
 __all__ = ['Key']
-__version__ = '0.1.1'
+__version__ = '0.1.2'

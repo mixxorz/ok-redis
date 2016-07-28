@@ -72,6 +72,20 @@ class KeyTest(unittest.TestCase):
 
         self.assertEqual('%s' % User('mixxorz'), 'User:mixxorz')
 
+    def test_attribute_error(self):
+        class Tweet(Key):
+            pass
+
+        class User(Key):
+            fields = ['tweets']
+            subkeys = [Tweet]
+
+        with self.assertRaises(AttributeError):
+            User('mixxorz').followers
+
+        with self.assertRaises(AttributeError):
+            User('mixxorz').Profile()
+
 
 class Parent(Key):
     subkeys = ['ok.tests.module_test.Refer']

@@ -68,5 +68,7 @@ class Key(object):
             return next(subkey for subkey in subkeys
                         if subkey.__name__ == attr)(prefix=self.key)
 
+        raise AttributeError
+
     def __str__(self):
         return self.key

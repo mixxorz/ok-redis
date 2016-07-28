@@ -5,7 +5,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
 
 setup(name='ok-redis',
-      version='0.1.1',
+      version='0.1.2',
       packages=find_packages(exclude=['test*']),
       license='MIT',
       description='Object-Key Mapper for Redis',
