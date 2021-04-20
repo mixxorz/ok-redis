@@ -4,17 +4,31 @@
 #
 #    pip-compile --output-file dev-requirements.txt dev-requirements.in
 #
-
 autopep8==1.2.4
-click==6.6                # via pip-tools
+    # via -r dev-requirements.in
+click==6.6
+    # via pip-tools
 docutils==0.12
-first==2.0.1              # via pip-tools
-pep8==1.7.0               # via autopep8
+    # via -r dev-requirements.in
+first==2.0.1
+    # via pip-tools
+pep8==1.7.0
+    # via autopep8
 pip-tools==1.6.5
-pluggy==0.3.1             # via tox
-py==1.4.31                # via pytest, tox
+    # via -r dev-requirements.in
+pluggy==0.3.1
+    # via tox
+py==1.10.0
+    # via
+    #   pytest
+    #   tox
 pygments==2.1.3
+    # via -r dev-requirements.in
 pytest==2.9.2
-six==1.10.0               # via pip-tools
+    # via -r dev-requirements.in
+six==1.10.0
+    # via pip-tools
 tox==2.3.1
-virtualenv==15.0.2        # via tox
+    # via -r dev-requirements.in
+virtualenv==15.0.2
+    # via tox
